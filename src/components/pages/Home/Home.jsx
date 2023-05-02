@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Home = () => {
     return (
@@ -14,9 +15,11 @@ const Home = () => {
             Chef Tracker is a vibrant platform that seeks out and celebrates exceptional culinary talent. With a passion for gastronomy, we meticulously search for hidden gems and remarkable chefs from around Bangladesh. Our mission is to showcase their unique skills and creations, providing a platform for these culinary masters to shine. Join us on an exciting journey of flavor and discovery as we uncover the extraordinary and push the boundaries of the culinary world. With Chef Tracker, prepare to embark on an exhilarating exploration of the finest cuisine and the talented individuals behind it.
           </p>
           <div className="mb-10 text-center md:mb-16 lg:mb-20">       
-            <button type="button" class="py-3 px-4  bg-orange-800 hover:bg-orange-400 focus:bg-orange-300 focus:ring-offset-orange-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-full">
+            <NavLink to="/register">
+                <button type="button" className="py-3 px-4  bg-orange-800 hover:bg-orange-400 focus:bg-orange-300 focus:ring-offset-orange-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-full">
                 Get Registered
             </button>
+            </NavLink>
           </div>
         </div>
       </div>
