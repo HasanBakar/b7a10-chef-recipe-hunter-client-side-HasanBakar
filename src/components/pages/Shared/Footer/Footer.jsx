@@ -18,7 +18,7 @@ const Footer = () => {
 			</a>
 		</div>
 
-		<div className="grid grid-cols-3 gap-5">
+		<div className="grid md:grid-cols-3 gap-5">
 
 			<div>
 				<h3 className="tracking-wide uppercase font-bold text-lg dark:text-gray-50">Contact us</h3>
