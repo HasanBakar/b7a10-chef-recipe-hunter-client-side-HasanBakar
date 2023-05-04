@@ -50,6 +50,7 @@ const loginWGithub = () =>{
 	.then(result =>{
 		const user = result.user;
 			setUser(user)
+			navigate(from,{replace:true})
 	})
 	.catch(error =>{
 			console.log(error.message)
