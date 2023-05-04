@@ -2,6 +2,8 @@ import React from 'react';
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import "./Navbar.css";
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css'; 
 import { AuthContext } from './../../../../Providers/AuthProviders/AuthProviders';
 
 const Navbar = () => {
@@ -40,7 +42,12 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 {
-                    user &&  <img alt="" className="w-8 h-8 mr-5 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-gray-700 ring-offset-gray-800" src="https://source.unsplash.com/40x40/?portrait?4" />
+                    user && 
+                      <Tippy content={user?.displayName || "Tooltip"}>
+                         <img alt="" className="w-8 h-8 mr-5 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-gray-700 ring-offset-gray-800" src="https://source.unsplash.com/40x40/?portrait?4" />
+                    </Tippy>
+
+                   
                 }
                 {
                     user ? <button onClick={handleLogOut} className="pr-4">LogOut</button>
