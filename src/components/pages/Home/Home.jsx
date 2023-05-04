@@ -46,9 +46,69 @@ const Home = () => {
       }
     </div>
 
-    </>
-    
 
+ <h1 className="text-center text-2xl mt-8 uppercase font-extrabold">Chef's competition Time Line</h1>
+    <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"/>
+    <div className="dark:bg-gray-800 dark:text-gray-100">
+	<div className="container max-w-5xl px-4 py-12 mx-auto">
+		<div className="grid gap-4 mx-4 sm:grid-cols-12">
+			<div className="col-span-12 sm:col-span-3">
+				<div className="text-center sm:text-left mb-14 before:block before:w-24 before:h-3 before:mb-5 before:rounded-md before:mx-auto sm:before:mx-0 before:dark:bg-violet-400">
+					<h3 className="text-3xl uppercase font-semibold">Take part then</h3>
+					<span className="text-sm font-bold tracking-wider uppercase dark:text-gray-400">you win or learning</span>
+				</div>
+			</div>
+			<div className="relative col-span-12 px-4 space-y-6 sm:col-span-9">
+				<div className="col-span-12 space-y-12 relative px-4 sm:col-span-8 sm:space-y-8 sm:before:absolute sm:before:top-2 sm:before:bottom-0 sm:before:w-0.5 sm:before:-left-3 before:dark:bg-gray-700">
+					<div className="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:dark:bg-violet-400">
+						<h3 className="text-xl font-semibold tracking-wide">Registration start </h3>
+						<time className="text-xs tracking-wide uppercase dark:text-gray-400">🎈12 December in every year🎈</time>
+						<p className="mt-3">Embrace the heat of the kitchen, for within its flames lies the crucible of culinary greatness. Let the sizzle of your skills and the aroma of your passion ignite a fierce determination. In the realm of chef's competition, rise above the rest, unleash your creativity, and showcase the true artistry of your craft.</p>
+					</div>
+					<div className="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:dark:bg-violet-400">
+						<h3 className="text-xl font-semibold tracking-wide">Registration dateline</h3>
+						<time className="text-xs tracking-wide uppercase dark:text-gray-400">🎈15 march in year🎈</time>
+						<p className="mt-3">With each plate you present, let your talent shine, leaving a lasting impression on the taste buds and hearts of all who experience your culinary masterpieces. Remember, in the arena of chefs, it is not just a competition; it is a celebration of gastronomic excellence. So, bring forth your finest flavors, push the boundaries, and leave an indelible mark on the culinary world.</p>
+					</div>
+					<div className="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:dark:bg-violet-400">
+						<h3 className="text-xl font-semibold tracking-wide">Final Event</h3>
+						<time className="text-xs tracking-wide uppercase dark:text-gray-400">26 March in every year🎈🎀🎈</time>
+						<p className="mt-3">The journey may be intense, but the rewards are the sweetest when you give it your all. Let the thrill of the competition propel you forward, and may your passion fuel your victory!</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/* FAQ section start */}
+    <div className="dark:bg-gray-800 dark:text-gray-100">
+	<div className="container flex flex-col justify-center p-4 mx-auto md:p-8">
+		<p className="p-2 text-sm font-medium tracking-wider text-center uppercase">How it works</p>
+		<h2 className="mb-12 text-4xl font-bold leading-none text-center sm:text-5xl">Frequently Asked Questions</h2>
+		<div className="flex flex-col divide-y sm:px-8 lg:px-12 xl:px-32 divide-gray-700">
+			<details>
+				<summary className="py-2 outline-none cursor-pointer focus:underline">what is chefTracker?</summary>
+				<div className="px-4 pb-4">
+					<p>ChefTracker is a web platform designed to track and monitor the activities of professional chefs. It provides tools and features to manage kitchen operations, track inventory, streamline recipe creation and costing, and monitor staff performance. The platform aims to enhance efficiency and productivity in culinary establishments by providing real-time insights and analytics for restaurant owners and chefs.</p>
+				</div>
+			</details>
+			<details>
+				<summary className="py-2 outline-none cursor-pointer focus:underline">What is Activity summary of chefTracker?</summary>
+				<div className="px-4 pb-4">
+					<p>As of my knowledge cutoff in September 2022, I'm not familiar with a specific website called "ChefTracker" and its current activities. It's possible that the website was developed or updated after that time. Without further information or context, I'm unable to provide an activity summary for ChefTracker. If you have any additional details or questions, please let me know, and I'll do my best to assist you.</p>
+				</div>
+			</details>
+			<details>
+				<summary className="py-2 outline-none cursor-pointer focus:underline">If you want to join us?</summary>
+				<div className="px-4 pb-4 space-y-2">
+					<p>If ChefTracker is a website and you're inviting me to join, I'm an AI language model and I don't have the ability to join websites or participate in online platforms. However, I'm here to help answer any questions or provide information you may need about ChefTracker or any other topic. Just let me know how I can assist you!</p>
+				</div>
+			</details>
+		</div>
+	</div>
+</div>
+
+    </>
     );
 };
 
