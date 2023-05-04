@@ -18,6 +18,10 @@ const Register = () => {
 		const password = form.password.value;
 		const confirmPassword= form.confirm.value;
 
+		if(password !== confirmPassword){
+					<p className="text-center" >Password do not matched!</p>
+				}
+
 		// console.log(name, photo, email, password, confirmPassword)
 
 		createUser(email, password)
@@ -34,16 +38,12 @@ const Register = () => {
 
     return (
          <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100 mx-auto">
-			{
-				if(password !== confirmPassword){
-					<p className="text-center" >Password do not matched!</p>
-				}
-			}
+			
 
-			<h1 className="text-3xl font-bold text-center">Please Registration</h1>
+	<h1 className="text-3xl font-bold text-center">Please Registration</h1>
 			
 				
-					<p className="text-center" >{ShowError}</p>
+					<p className="text-center text-2xl text-red-500" >{ShowError}</p>
 				
 			
 

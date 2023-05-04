@@ -61,7 +61,7 @@ const loginWGithub = () =>{
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100 mx-auto">
 
 			<h1 className="text-3xl font-bold text-center">Please Login</h1>
-			<p className="text-center" >{ShowError}</p>
+			<p className="text-center text-2xl text-red-500" >{ShowError}</p>
 
 			<form onSubmit={handleLogin} className="space-y-6 ng-untouched ng-pristine ng-valid">
 
