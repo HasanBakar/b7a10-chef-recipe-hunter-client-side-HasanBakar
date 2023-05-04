@@ -10,9 +10,9 @@ const Login = () => {
 	const location = useLocation()
 	const from = location?.state?.from?.pathname || "/";
 	
-	const {signIn,setUser, handleWithGoogle, handleWithGithub} = useContext(AuthContext);
+	const {signIn,setUser, handleWithGoogle,ShowError, setShowError, handleWithGithub} = useContext(AuthContext);
 
-	const navigate = useNavigate()
+	const navigate = useNavigate();
 
 	/**Login with Email/password */
 	const handleLogin = (event) =>{
@@ -28,7 +28,7 @@ const Login = () => {
 			navigate(from,{replace:true})
 		})
 		.catch(error =>{
-			console.log(error.message)
+			setShowError(error.message)
 		})
 	}
 
@@ -41,7 +41,7 @@ const Login = () => {
 			navigate(from,{replace:true})
 		})
 		.catch(error =>{
-			console.log(error.message)
+			setShowError(error.message)
 		})
 	}
 /**Login with github */
@@ -53,7 +53,7 @@ const loginWGithub = () =>{
 			navigate(from,{replace:true})
 	})
 	.catch(error =>{
-			console.log(error.message)
+			setShowError(error.message)
 		})
 }
 	
@@ -61,6 +61,7 @@ const loginWGithub = () =>{
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100 mx-auto">
 
 			<h1 className="text-3xl font-bold text-center">Please Login</h1>
+			<p className="text-center" >{ShowError}</p>
 
 			<form onSubmit={handleLogin} className="space-y-6 ng-untouched ng-pristine ng-valid">
 

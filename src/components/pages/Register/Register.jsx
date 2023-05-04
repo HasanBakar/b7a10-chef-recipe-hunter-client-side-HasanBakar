@@ -7,7 +7,7 @@ import { AuthContext } from './../../../Providers/AuthProviders/AuthProviders';
 
 
 const Register = () => {
-	const {createUser} = useContext(AuthContext);
+	const {createUser,ShowError, setShowError,} = useContext(AuthContext);
 
 	const handleRegister = event =>{
 		event.preventDefault();
@@ -26,7 +26,7 @@ const Register = () => {
 			form.reset();
 			})
 			.catch(error => {
-			console.log(error.message)
+			setShowError(error.message)
 			})
 
 
@@ -34,8 +34,18 @@ const Register = () => {
 
     return (
          <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100 mx-auto">
+			{
+				if(password !== confirmPassword){
+					<p className="text-center" >Password do not matched!</p>
+				}
+			}
 
 			<h1 className="text-3xl font-bold text-center">Please Registration</h1>
+			
+				
+					<p className="text-center" >{ShowError}</p>
+				
+			
 
 			<form onSubmit={handleRegister} className="space-y-6 ng-untouched ng-pristine ng-valid">
 

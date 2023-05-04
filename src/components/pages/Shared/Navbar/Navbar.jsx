@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink,useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import "./Navbar.css";
 import Tippy from '@tippyjs/react';
@@ -7,12 +7,14 @@ import 'tippy.js/dist/tippy.css';
 import { AuthContext } from './../../../../Providers/AuthProviders/AuthProviders';
 
 const Navbar = () => {
-
+    const navigate = useNavigate();
     const {user,logOut} = useContext(AuthContext)
 
     const handleLogOut = () =>{
         logOut()
-        .then()
+        .then(p=>{
+            navigate("/");
+        })
         .catch(error =>{
             console.log(error.message)
         })
