@@ -1,8 +1,12 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLoaderData } from 'react-router-dom';
+import ChefCard from './../../ChefCard/ChefCard';
 
 const Home = () => {
+  const chefs = useLoaderData()
+  // console.log(chefs)
     return (
+    <>
     <div className="relative flex flex-col-reverse py-16 lg:py-0 lg:flex-col">
         <div className="w-full max-w-xl px-4 mx-auto md:px-0 lg:px-8 lg:py-10    lg:max-w-screen-xl">
         <div className="mb-0 lg:max-w-lg lg:pr-8 xl:pr-6">
@@ -31,6 +35,19 @@ const Home = () => {
         />
       </div>
     </div>
+    <h1 className="text-center text-2xl uppercase font-extrabold">Our Top Chefs</h1>
+    <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"/>
+    <div className="grid md:grid-cols-3 gap-4">
+      {
+        chefs.map(cf => <ChefCard
+        key={cf.id}
+        chef={cf}
+        ></ChefCard>)
+      }
+    </div>
+
+    </>
+    
 
     );
 };

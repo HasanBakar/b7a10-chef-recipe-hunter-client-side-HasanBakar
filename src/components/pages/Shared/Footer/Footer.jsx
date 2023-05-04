@@ -3,6 +3,8 @@ import "./Footer.css"
 
 const Footer = () => {
     return (
+		<>
+		<hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"/>
         <div className="px-4 divide-y dark:bg-gray-800 dark:text-gray-100">
 	<div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
 		<div className="lg:w-1/3">
@@ -58,7 +60,7 @@ const Footer = () => {
                 <p className="text-transparent font-extrabold  bg-clip-text bg-gradient-to-r from-orange-600 to-gray-400">SUBSCRIBE TO OUR NEWSLETTER</p>
                 <form action="#" className="mb-2">
                     <div className="form-append">
-                    <input className="input input-bordered input-warning rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" type="email" placeholder="Enter your email" />
+                    <input className="input input-bordered input-warning rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" type="email" placeholder="Enter your email" required />
                     <button className="py-1 px-2 mt-2  bg-orange-800 hover:bg-orange-400 focus:bg-orange-300 focus:ring-offset-orange-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg" type="submit">Subscribe</button>
                     </div>
                 </form>
@@ -70,7 +72,7 @@ const Footer = () => {
 	<div className="py-6 text-sm text-gray-300 text-center dark:text-gray-400">© 2023 
     Chef Tracker Limited. All rights reserved.</div>
 </div>
-
+	</>
     );
 };
 

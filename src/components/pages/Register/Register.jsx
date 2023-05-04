@@ -1,18 +1,49 @@
 import React from 'react';
+import { updateProfile } from "firebase/auth";
 import { NavLink } from "react-router-dom";
+import { useContext } from 'react';
+import { AuthContext } from './../../../Providers/AuthProviders/AuthProviders';
+
+
+
 const Register = () => {
+	const {createUser} = useContext(AuthContext);
+
+	const handleRegister = event =>{
+		event.preventDefault();
+		const form = event.target;
+		const name = form.name.value;
+		const photo = form.photo.value;
+		const email = form.email.value;
+		const password = form.password.value;
+		const confirmPassword= form.confirm.value;
+
+		// console.log(name, photo, email, password, confirmPassword)
+
+		createUser(email, password)
+			.then(result =>{
+			const u = result.user;	
+			form.reset();
+			})
+			.catch(error => {
+			console.log(error.message)
+			})
+
+
+	}
+
     return (
          <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100 mx-auto">
 
 			<h1 className="text-3xl font-bold text-center">Please Registration</h1>
 
-			<form className="space-y-6 ng-untouched ng-pristine ng-valid">
+			<form onSubmit={handleRegister} className="space-y-6 ng-untouched ng-pristine ng-valid">
 
 				<div className="space-y-1 text-sm">
 
 					<label htmlFor="name" className="block text-xl dark:text-gray-400">Your name</label>
 
-					<input type="text" name="name" id="email" placeholder="Your name" className="w-full input input-bordered input-warning px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required />
+					<input type="text" name="name" placeholder="Your name" className="w-full input input-bordered input-warning px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required />
 
 				</div>
 
@@ -20,7 +51,7 @@ const Register = () => {
 
 					<label htmlFor="photo" className="block text-xl dark:text-gray-400">Your Photo url</label>
 
-					<input type="text" name="photo" id="photo" placeholder="Your Photo url" className="w-full input input-bordered input-warning px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required />
+					<input type="text" name="photo" placeholder="Your Photo url" className="w-full input input-bordered input-warning px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required />
 
 				</div>
 
@@ -28,7 +59,7 @@ const Register = () => {
 
 					<label htmlFor="Email" className="block text-xl dark:text-gray-400">Email Address</label>
 
-					<input type="email" name="email" id="Email" placeholder="Email Address" className="w-full input input-bordered input-warning px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required />
+					<input type="email" name="email" placeholder="Email Address" className="w-full input input-bordered input-warning px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required />
 
 				</div>
 
@@ -44,7 +75,7 @@ const Register = () => {
 
 					<label htmlFor="password" className="block text-xl dark:text-gray-400">Confirm your password</label>
 
-					<input type="password" name="confirm" id="password" placeholder="Confirm your password" className="w-full px-4 py-3 input input-bordered input-warning rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required />
+					<input type="password" name="confirm" placeholder="Confirm your password" className="w-full px-4 py-3 input input-bordered input-warning rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required />
 
 				</div>
 

@@ -1,23 +1,46 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink,useNavigate,useLocation } from 'react-router-dom';
 import "../Shared/Navbar/Navbar.css"
-
+import { useContext } from 'react';
+import { AuthContext } from './../../../Providers/AuthProviders/AuthProviders';
 
 
 const Login = () => {
-    
+
+	const location = useLocation()
+	const from = location?.state?.from?.pathname || "/";
+	console.log(from)
+	const {signIn} = useContext(AuthContext);
+	const navigate = useNavigate()
+	const handleLogin = (event) =>{
+		event.preventDefault();
+		const form = event.target;
+		const email = form.email.value;
+		const password = form.password.value;
+		signIn(email, password)
+		.then(result =>{
+			const user = result.user;
+			console.log(user)
+			form.reset()
+			navigate(from,{replace:true})
+		})
+		.catch(error =>{
+			console.log(error.message)
+		})
+	}
+	
     return (
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100 mx-auto">
 
 			<h1 className="text-3xl font-bold text-center">Please Login</h1>
 
-			<form className="space-y-6 ng-untouched ng-pristine ng-valid">
+			<form onSubmit={handleLogin} className="space-y-6 ng-untouched ng-pristine ng-valid">
 
 				<div className="space-y-1 text-sm">
 
 					<label htmlFor="Email" className="block text-xl dark:text-gray-400">Email Address</label>
 
-					<input type="text" name="Email" id="Email" placeholder="Email Address" className="w-full input input-bordered input-warning px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required />
+					<input type="text" name="email" placeholder="Email Address" className="w-full input input-bordered input-warning px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required />
 
 				</div>
 
@@ -25,7 +48,7 @@ const Login = () => {
 
 					<label htmlFor="password" className="block dark:text-gray-400">Password</label>
 
-					<input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 input input-bordered input-warning rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required />
+					<input type="password" name="password" placeholder="Password" className="w-full px-4 py-3 input input-bordered input-warning rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required />
 
 				</div>
 
