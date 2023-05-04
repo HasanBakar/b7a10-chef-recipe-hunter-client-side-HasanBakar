@@ -1,8 +1,16 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const ChefCard = ({chef}) => {
-    // console.log(chef)
+    const fToast = () =>{
+        toast("Wow! Successfully added your favorite list!",{
+            position: "top-center"
+        });
+    }
+
     const {Likes, Numbers_of_recipes, Years_of_experience, Chef_Name, Chef_Picture, id} = chef;
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
@@ -20,10 +28,11 @@ const ChefCard = ({chef}) => {
                     <p>Likes: {Likes} </p>
                 </div>
                 <div className="card-actions justify-end">
-                    <Link className="py-3 px-4  bg-orange-800 hover:bg-orange-400 focus:bg-orange-300 focus:ring-offset-orange-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-md">Favorite </Link>
+                    <Link className="py-3 px-4  bg-orange-800 hover:bg-orange-400 focus:bg-orange-300 focus:ring-offset-orange-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-md" onClick={fToast}>Favorite </Link>
                     <Link to={`/${id}`} className="py-3 px-4  bg-orange-800 hover:bg-orange-400 focus:bg-orange-300 focus:ring-offset-orange-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-md">View Recipes</Link>
                 </div>
             </div>
+                    <ToastContainer />
         </div>
     );
 };

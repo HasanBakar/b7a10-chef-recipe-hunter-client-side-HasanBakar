@@ -22,11 +22,13 @@ const router = createBrowserRouter([
             },
             {
                 path:"/:id",
-                element:<PrivateRoute><ViewRecipe></ViewRecipe> </PrivateRoute>
+                element:<PrivateRoute><ViewRecipe></ViewRecipe></PrivateRoute>,
+                loader: ({params}) => fetch(`https://b7a10-chef-recipe-hunter-server-side-hasan-bakar.vercel.app/${params.id}`)
+
             },
             {
                 path: "/blog",
-                element: <PrivateRoute><Blog></Blog> </PrivateRoute>
+                element: <PrivateRoute><Blog></Blog></PrivateRoute>
             },
             {
                 path: "/feedback",
